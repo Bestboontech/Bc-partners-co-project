@@ -1,0 +1,239 @@
+/* Global Variables */
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #44434a;
+  --hover-bg-color: #1d1d21;
+  --text-color: #333;
+  --light-bg-color: #f8f9fa;
+  --font-family: 'Open Sans', sans-serif;
+  --transition-speed: 0.5s;
+}
+
+/* Font Sizes */
+.xl-text {
+  font-size: 75px;
+}
+
+@media (max-width: 992px) {
+  .xl-text {
+    font-size: 50px;
+  }
+}
+
+/* Spacing Utilities */
+.content-spacing {
+  margin-top: 100px; /* Adjust the value to control how far down you want the content */
+}
+
+/* Container Adjustments */
+.container.position-relative.z-3 {
+  transform: translateY(-50px); /* Adjust as needed */
+}
+
+.text-container, .image-container {
+  margin-top: 100px; /* Consistent spacing for containers */
+}
+
+.parent-container {
+  padding-bottom: 50px; /* Adds space at the bottom */
+}
+
+/* Buttons */
+.btn-outline-secondary {
+  color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.btn-outline-secondary:hover {
+  color: #fff;
+  background-color: var(--secondary-color);
+}
+
+/* Header Decorations */
+.header .decoration-star,
+.header .decoration-star-2,
+.details .decoration-star,
+.details-2 .decoration-star,
+.contact .decoration-star {
+  width: 500px;
+  opacity: 0.7;
+}
+
+.header .decoration-star {
+  top: 80px;
+  left: -200px;
+}
+
+.header .decoration-star-2 {
+  top: 80px;
+  right: -200px;
+}
+
+.details .decoration-star {
+  left: -200px;
+}
+
+.details-2 .decoration-star {
+  right: -200px;
+}
+
+.contact .decoration-star {
+  left: -300px;
+  width: 600px;
+}
+
+/* Navbar */
+.navbar {
+  transition: background-color var(--transition-speed), opacity var(--transition-speed);
+}
+
+.navbar-sticky {
+  background: #fff;
+  opacity: 0.9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* To Top Button */
+.to-top-btn {
+  position: fixed;
+  z-index: 20;
+  bottom: 20px;
+  right: 20px;
+  width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+}
+
+.to-top-btn:hover {
+  background-color: var(--hover-bg-color);
+}
+
+.to-top-btn img {
+  width: 18px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .navbar .btn-outline-secondary {
+    margin-top: 20px;
+  }
+
+  .header {
+    margin-top: 0 !important;
+    text-align: center;
+  }
+
+  .header .decoration-star {
+    left: -100px;
+    width: 250px;
+  }
+
+  .header .decoration-star-2 {
+    right: -100px;
+    width: 250px;
+  }
+
+  .header .image-container {
+    margin-top: 30px;
+  }
+
+  .services .col-md-4 {
+    border-bottom: 1px solid #ccc;
+    margin: 10px 0;
+  }
+
+  .details-2 {
+    margin-top: 20px !important;
+  }
+
+  .details-2 .decoration-star {
+    top: 300px;
+  }
+}
+
+/* Footer Styling */
+.footer {
+  background-color: var(--light-bg-color); /* Light background color */
+  color: var(--text-color);
+  padding: 50px 0;
+  font-family: var(--font-family);
+}
+
+.footer-heading {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary-color); /* Highlight heading */
+  margin-bottom: 20px;
+}
+
+.footer-text {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-color); /* Regular text color */
+}
+
+.footer-contact a {
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+  color: var(--secondary-color); /* Hover effect */
+  text-decoration: underline;
+}
+
+.footer-contact li {
+  margin-bottom: 10px;
+}
+
+/* Social Media Icons */
+.social-icons a {
+  color: var(--secondary-color);
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: var(--primary-color); /* Social icon hover */
+}
+
+/* Footer Responsiveness */
+@media (max-width: 768px) {
+  .footer {
+    text-align: center;
+  }
+
+  .footer .col-md-4 {
+    margin-bottom: 20px;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
+.footer-contact li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.footer-contact i {
+  margin-right: 8px;
+  color: var(--primary-color); /* You can adjust the color as needed */
+}
+
+.footer-contact a {
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+  color: var(--secondary-color); /* Hover effect */
+}
+.push-down {
+  margin-top: 100px; /* Adjust the value to push the content further down */
+}
