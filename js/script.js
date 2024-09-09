@@ -1,38 +1,33 @@
-function userScroll() {
+// Handle scroll events
+window.onscroll = () => {
+  const toTopButton = document.querySelector('.to-top-btn');
   const navbar = document.querySelector('.navbar');
-  const toTopBtn = document.querySelector('#to-top');
+  const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      navbar.classList.add('navbar-sticky');
-      toTopBtn.classList.add('show');
-    } else {
-      navbar.classList.remove('navbar-sticky');
-      toTopBtn.classList.remove('show');
-    }
-  });
-}
+  // Toggle visibility of "to-top" button
+  toTopButton.style.display = scrollTop > 200 ? 'flex' : 'none';
 
-function scrollToTop() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
+  // Toggle sticky navbar
+  navbar.classList.toggle('navbar-sticky', scrollTop > 50);
+};
 
-function incrementStats() {
-  const counters = document.querySelectorAll('.counter');
+// Smooth scroll to top
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
 
-  counters.forEach((counter) => {
-    counter.innerText = 0;
+// Increment stats counters
+const incrementStats = () => {
+  document.querySelectorAll('.counter').forEach((counter) => {
+    counter.innerText = '0';
+    const target = +counter.getAttribute('data-target');
+    const increment = target / 200;
 
     const updateCounter = () => {
-      const target = +counter.getAttribute('data-target');
-      const c = +counter.innerText;
-
-      const increment = target / 200;
-
-      if (c < target) {
-        counter.innerText = Math.ceil(c + increment);
-        setTimeout(updateCounter, 1);
+      const current = +counter.innerText;
+      if (current < target) {
+        counter.innerText = Math.ceil(current + increment);
+        requestAnimationFrame(updateCounter);
       } else {
         counter.innerText = target;
       }
@@ -40,9 +35,8 @@ function incrementStats() {
 
     updateCounter();
   });
-}
+};
 
-// Event Listeners
-document.addEventListener('DOMContentLoaded', userScroll);
+// Event listeners
 document.addEventListener('DOMContentLoaded', incrementStats);
-document.querySelector('#to-top').addEventListener('click', scrollToTop);
+document.querySelector('.to-top-btn').addEventListener('click', scrollToTop);
