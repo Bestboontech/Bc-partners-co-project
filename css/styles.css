@@ -7,6 +7,10 @@
   --light-bg-color: #f8f9fa;
   --font-family: 'Open Sans', sans-serif;
   --transition-speed: 0.5s;
+  --white-color: #fff;
+  --hover-button-color: #0056b3;
+  --breakpoint-lg: 992px;
+  --breakpoint-md: 768px;
 }
 
 /* Global Styles */
@@ -14,10 +18,9 @@ body {
   font-family: var(--font-family);
   line-height: 1.6;
   margin: 0;
-  padding-bottom: 80px; /* Prevents content overlap with fixed elements */
+  padding-bottom: 80px;
 }
 
-/* Typography */
 h1, h2, h3 {
   font-weight: 700;
   margin-bottom: 20px;
@@ -33,8 +36,13 @@ a {
   transition: color var(--transition-speed);
 }
 
+a:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
 /* Button Styles */
-button, .btn-outline-secondary {
+button, .btn-outline-secondary, .back-button {
   font-size: 16px;
   padding: 10px 20px;
   border-radius: 5px;
@@ -48,8 +56,24 @@ button, .btn-outline-secondary {
 
 .btn-outline-secondary:hover {
   background-color: var(--secondary-color);
-  color: #fff;
+  color: var(--white-color);
 }
+
+.back-button {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  border: none;
+  border-radius: 4px;
+}
+
+.back-button:hover {
+  background-color: var(--hover-button-color);
+}
+
+/* Utility Classes */
+.mt-20 { margin-top: 20px; }
+.mb-20 { margin-bottom: 20px; }
+.text-center { text-align: center; }
 
 /* Layout & Spacing */
 .container, .text-container, .image-container {
@@ -58,8 +82,9 @@ button, .btn-outline-secondary {
   max-width: 1200px;
 }
 
-.content-spacing, .push-down {
-  margin-top: 100px;
+/* Move content closer to navbar */
+.content-spacing {
+  margin-top: 50px; /* Reduce spacing between navbar and content */
 }
 
 .parent-container {
@@ -67,8 +92,8 @@ button, .btn-outline-secondary {
 }
 
 /* Header Decorations */
-.header .decoration-star,
-.header .decoration-star-2,
+.main-header .decoration-star,
+.main-header .decoration-star-2,
 .details .decoration-star,
 .details-2 .decoration-star,
 .contact .decoration-star {
@@ -78,11 +103,11 @@ button, .btn-outline-secondary {
   top: 80px;
 }
 
-.header .decoration-star {
+.main-header .decoration-star {
   left: -200px;
 }
 
-.header .decoration-star-2 {
+.main-header .decoration-star-2 {
   right: -200px;
 }
 
@@ -91,119 +116,13 @@ button, .btn-outline-secondary {
   left: -200px;
 }
 
-/* Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #fff;
-  transition: background-color var(--transition-speed), opacity var(--transition-speed);
-}
-
-.navbar-sticky {
-  background: #fff;
-  opacity: 0.9;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.navbar a {
-  color: var(--secondary-color);
-  margin-right: 15px;
-}
-
-.navbar a:hover {
-  color: var(--primary-color);
-}
-
-/* To Top Button */
-.to-top-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 52px;
-  height: 52px;
-  border: none;
-  border-radius: 50%;
-  background-color: var(--secondary-color);
-  cursor: pointer;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  transition: background-color var(--transition-speed);
-  z-index: 1000;
-}
-
-.to-top-btn.show {
-  display: flex;
-}
-
-.to-top-btn:hover {
-  background-color: var(--hover-bg-color);
-}
-
-.to-top-btn img {
-  width: 18px;
-}
-
 /* Section Styles */
 section {
   border: 1px solid var(--light-bg-color);
   border-radius: 8px;
   padding: 20px;
   margin-bottom: 20px;
-  background-color: #fff;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 992px) {
-  .xl-text {
-    font-size: 50px;
-  }
-
-  .header {
-    text-align: center;
-  }
-
-  .header .decoration-star,
-  .header .decoration-star-2 {
-    left: -100px;
-    width: 250px;
-  }
-
-  .header .image-container {
-    margin-top: 30px;
-  }
-
-  .services .col-md-4 {
-    border-bottom: 1px solid #ccc;
-    margin: 10px 0;
-  }
-
-  .details-2 {
-    margin-top: 20px !important;
-  }
-
-  .details-2 .decoration-star {
-    top: 300px;
-  }
-
-  .navbar a {
-    margin: 10px 0;
-  }
-}
-
-@media (max-width: 768px) {
-  .footer {
-    text-align: center;
-  }
-
-  .footer .col-md-4 {
-    margin-bottom: 20px;
-  }
-
-  .social-icons {
-    justify-content: center;
-  }
+  background-color: var(--white-color);
 }
 
 /* Footer Styling */
@@ -240,27 +159,166 @@ section {
 .footer-contact a {
   color: var(--secondary-color);
   transition: color 0.3s ease;
-  text-decoration: none;
 }
 
 .footer-contact a:hover {
   color: var(--primary-color);
-  text-decoration: underline;
 }
 
-/* Back Button */
-.back-button {
-  display: inline-block;
-  margin-bottom: 10px;
-  padding: 8px 12px;
-  color: #fff;
-  background-color: var(--primary-color);
-  border: none;
-  border-radius: 4px;
+/* Responsive Adjustments */
+@media (max-width: var(--breakpoint-lg)) {
+  .xl-text {
+    font-size: 50px;
+  }
+
+  .main-header {
+    text-align: center;
+  }
+
+  .main-header .decoration-star,
+  .main-header .decoration-star-2 {
+    left: -100px;
+    width: 250px;
+  }
+
+  .services .col-md-4 {
+    border-bottom: 1px solid #ccc;
+    margin: 10px 0;
+  }
+
+  .details-2 {
+    margin-top: 20px !important;
+  }
+
+  .details-2 .decoration-star {
+    top: 300px;
+  }
+
+  .navbar a {
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: var(--breakpoint-md)) {
+  .footer {
+    text-align: center;
+  }
+
+  .footer .col-md-4 {
+    margin-bottom: 20px;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--light-bg-color);
+}
+
+/* Focus States for Accessibility */
+button:focus, a:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 4px;
+}
+
+/* Logo and Brand Text Styling */
+.navbar-brand {
+  display: flex;
+  justify-content: center;
+}
+
+.logo-link {
+  display: flex;
+  flex-direction: column; /* Stack logo and text vertically */
+  align-items: center;
+  text-decoration: none; /* Remove underline from the link */
+}
+
+.logo {
+  width: 110px;
+  height: auto;
+}
+
+.brand-text {
   font-size: 16px;
-  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-top: 5px;
 }
 
-.back-button:hover {
-  background-color: #0056b3;
+@media (max-width: 768px) {
+  .logo {
+    width: 90px;
+  }
+
+  .brand-text {
+    font-size: 14px;
+  }
 }
+.container.position-relative.z-3 {
+  margin-top: -80px; /* Adjust this value as needed to move the contents up */
+  /* Alternatively, you can use positioning */
+  position: relative;
+  top: -20px; /* Move it up by 20px, adjust the value as needed */
+}
+.content-box {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.footer-text {
+    font-size: 0.9rem;
+}
+
+.footer-heading {
+    font-weight: 600;
+}
+
+.to-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #f8f9fa;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.to-top-btn img {
+    width: 30px;
+}
+
+.footer-contact li {
+    list-style-type: none;
+}
+
+.footer-contact li a {
+    color: inherit;
+}
+
+.footer-contact li a:hover {
+    text-decoration: underline;
+}
+.container.position-relative.z-3 {
+  margin-top: 20px; /* Adjust the value as needed */
+  /* Alternatively, you could use padding-top if you want to create space within the element itself */
+  /* padding-top: 20px; */
+}
+
+
