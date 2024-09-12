@@ -596,10 +596,12 @@
             <div class="text-container">
               <h2>Request a Quote Today</h2>
 
-              <form>
+              <form action="https://script.google.com/macros/s/AKfycbzbwRZPkJ17rWzpZflDB2ZRLtO7eCrD3Fd5Wmq41kY-ww_lTUneH_Rq5s6p6cSj0Bp7/exec"
+              method="POST" name="contact-form" >
                 <div class="mb-3">
                   <input
                     type="text"
+                    name="Enter-name"
                     class="form-control"
                     placeholder="Enter name"
                   />
@@ -607,6 +609,7 @@
                 <div class="mb-3">
                   <input
                     type="email"
+                    name="Enter-email"
                     class="form-control"
                     placeholder="Enter email"
                   />
@@ -615,12 +618,14 @@
                   <input
                     type="text"
                     class="form-control"
+                    name="Enter-phone"
                     placeholder="Enter phone"
                   />
                 </div>
                 <div class="mb-3">
                   <textarea
                     class="form-control"
+                    name="message"
                     placeholder="Enter message"
                     rows="8"
                   ></textarea>
@@ -702,5 +707,6 @@
 
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/goggle.js"></script>
   </body>
 </html>
