@@ -164,7 +164,13 @@ section {
 .footer-contact a:hover {
   color: var(--primary-color);
 }
+.nav-link{
+  width: fit-content;
+}
+.navbar-toggler:focus{
 
+box-shadow: none !important;
+}
 /* Responsive Adjustments */
 @media (max-width: var(--breakpoint-lg)) {
   .xl-text {
@@ -256,6 +262,19 @@ button:focus, a:focus {
   color: var(--primary-color);
   font-weight: 600;
   margin-top: 5px;
+}
+
+@media  (max-width: 992px) {
+  .cont {
+    padding-inline: 0px;
+    margin-inline: 0px;
+  }
+  .barr {
+    padding: 10px !important;
+  }
+  .botton{
+    max-width: 150px;
+  }
 }
 
 @media (max-width: 768px) {

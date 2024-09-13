@@ -30,7 +30,11 @@
 
 /* Navbar Styles */
 .navbar {
-  background: linear-gradient(90deg, rgba(74, 61, 150, 1) 0%, rgba(29, 29, 33, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(74, 61, 150, 1) 0%,
+    rgba(29, 29, 33, 1) 100%
+  );
   box-shadow: 0 4px 6px var(--box-shadow-color);
   padding: 10px 20px;
   display: flex;
