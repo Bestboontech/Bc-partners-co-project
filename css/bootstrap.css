@@ -72,6 +72,9 @@
   --bs-link-hover-color: #3744a8;
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fff3cd;
+  --hover-bg-color: #f1f1f1; /* Light grey for navbar background on hover */
+  --hover-button-color: #007bff; /* Blue for button hover */
+  
 }
 
 *,
