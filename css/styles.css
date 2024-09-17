@@ -52,13 +52,13 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Added transition for smooth hover effect */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Navbar hover effect */
+/* Navbar Hover Effect */
 .navbar:hover {
-  background-color: var(--hover-bg-color); /* Change background color on hover */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Slightly larger shadow on hover */
+  background-color: var(--hover-bg-color);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Navbar Link Styling */
@@ -84,12 +84,12 @@
   transition: width 0.3s ease;
 }
 
-.nav-link:hover::after {
-  width: 100%;
-}
-
 .nav-link:hover {
   color: var(--primary-color);
+}
+
+.nav-link:hover::after {
+  width: 100%;
 }
 
 /* Navbar Toggle Button */
@@ -135,7 +135,7 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: blue;
+  background-color: #4555d2;
   border: none;
   padding: 10px;
   border-radius: 50%;
@@ -171,7 +171,7 @@
 /* Testimonials Image with Rounded Borders */
 .testimonials .carousel-item img {
   border: 4px solid #007bff;
-  border-radius: 20px; /* Rounded borders for images */
+  border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
@@ -195,20 +195,6 @@
   color: #333;
 }
 
-/* Carousel Control Buttons */
-.carousel-control-prev,
-.carousel-control-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: auto;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 50%;
-  padding: 10px;
-  transition: background-color 0.3s ease;
-  z-index: 10;
-}
-
 .carousel-control-prev {
   left: 10px;
 }
@@ -219,33 +205,18 @@
 
 .carousel-control-prev i,
 .carousel-control-next i {
-  color: #fff;
+  color: #007bff;
   font-size: 2rem;
   transition: transform 0.3s ease;
-}
-
-.carousel-control-prev:hover,
-.carousel-control-next:hover {
-  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .carousel-control-prev:hover i,
 .carousel-control-next:hover i {
   transform: scale(1.1);
-}
-
-/* Custom Arrow Icon Color */
-.carousel-control-prev i,
-.carousel-control-next i {
-  color: #007bff;
-}
-
-.carousel-control-prev:hover i,
-.carousel-control-next:hover i {
   color: #0056b3;
 }
 
-/* Responsive Adjustments */
+/* Responsive Adjustments for Testimonials */
 @media (max-width: 768px) {
   .testimonials .carousel-item img {
     width: 80px;
@@ -273,4 +244,93 @@
   .carousel-control-next {
     padding: 8px;
   }
+}
+
+/* Footer Styling */
+.footer {
+  background-color: #f8f9fa;
+  padding: 60px 0;
+  color: #555;
+  font-family: 'Arial', sans-serif;
+}
+
+.footer-heading {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.footer-heading::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background-color: #007bff;
+  margin-top: 5px;
+}
+
+.footer-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  color: #666;
+}
+
+.footer-contact a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+  color: #0056b3;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin-right: 15px;
+  color: #333;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #007bff;
+  transform: scale(1.1);
+}
+
+/* Copyright Section */
+.footer-bottom {
+  background-color: #e9ecef;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+  border-top: 1px solid #ddd;
+}
+
+.footer-bottom a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
+.my-5 {
+  text-align: center;
 }
