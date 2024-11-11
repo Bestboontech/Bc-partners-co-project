@@ -3,7 +3,7 @@ export default async function handler(req, res) {
       return res.status(405).json({ error: 'Method not allowed' });
     }
   
-    const { service_id, template_id, user_id, ...formData } = req.body;
+    const { formData } = req.body;
   
     // Send email using EmailJS API
     try {
