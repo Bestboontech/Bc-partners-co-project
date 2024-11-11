@@ -74,20 +74,21 @@ document
   .getElementById("myForm")
   .addEventListener("submit", async function (event) {
     event.preventDefault();
-    const formData = new FormData();
 
-    formData.append("name", event.target?.name?.value);
-    formData.append("email", event.target?.email?.value);
-    formData.append("phone", event.target?.phone?.value);
-    formData.append("message", event.target?.message?.value);
+    const data = {
+      name: event.target?.name?.value,
+      email: event.target?.email?.value,
+      phone: event.target?.phone?.value,
+      message: event.target?.message?.value,
+    };
 
     try {
       const response = await fetch("/api/send-email", {
         method: "POST",
         headers: {
-          "Content-Type": "multipart/form-data",
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ formData }),
       });
 
       if (response.ok) {
