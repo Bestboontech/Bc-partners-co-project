@@ -68,3 +68,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Use debounced scroll handler for better performance
 window.addEventListener('scroll', debounce(handleScroll));
+
+
+document.getElementById('myForm').addEventListener('submit', async function(event) {
+  event.preventDefault();
+  const formData = new FormData();
+
+
+ formData.append("name",event.target?.name?.value)
+ formData.append("email",event.target?.email?.value)
+ formData.append("phone",event.target?.phone?.value)
+ formData.append("message",event.target?.message?.value)
+
+
+  try {
+    const response = await fetch('/api/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (response.ok) {
+      alert('Your mail is sent!');
+    } else {
+      const errorData = await response.json();
+      alert('Oops... ' + JSON.stringify(errorData));
+    }
+  } catch (error) {
+    alert('Oops... ' + error.message);
+  }
+});

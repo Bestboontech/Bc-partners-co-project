@@ -103,6 +103,112 @@
 .navbar .toggle-menu.active {
   transform: rotate(90deg);
 }
+/* Navbar item styling */
+.navbar .nav-item {
+  padding: 10px 20px;
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.navbar .nav-item a {
+  text-decoration: none;
+  color: #000; /* Default color */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Hover effect */
+.navbar .nav-item:hover {
+  background-color: #007BFF; /* Change background color on hover */
+  border-radius: 5px; /* Make it rounded */
+}
+
+.navbar .nav-item:hover a {
+  color: #fff; /* Change text color on hover */
+}
+
+/* Add a cool underline effect on hover */
+.navbar .nav-item a::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #007BFF;
+  transition: width 0.3s ease;
+}
+
+.navbar .nav-item:hover a::before {
+  width: 100%;
+}
+:root {
+  --primary-color: #4a3d96;
+  --hover-color: #1d1d21;
+  --text-hover-color: #ffffff;
+  --navbar-hover-bg: rgba(74, 61, 150, 0.8);
+  --transition-speed: 0.3s ease;
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: #ffffff;
+  padding: 10px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .navbar-nav .nav-item .nav-link {
+  color: #000; /* Default text color */
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  transition: var(--transition-speed); /* Smooth transition for hover effect */
+}
+
+.navbar .navbar-nav .nav-item .nav-link:hover {
+  color: var(--text-hover-color); /* Change text color on hover */
+  background-color: var(--navbar-hover-bg); /* Change background color on hover */
+  border-radius: 8px; /* Rounded corners for the background on hover */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); /* Add a subtle shadow on hover */
+  transform: translateY(-2px); /* Slight upward movement on hover */
+}
+
+.navbar .navbar-nav .nav-item .nav-link.active {
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.navbar .navbar-brand .logo-link {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .navbar-brand .brand-text {
+  margin-left: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+}
+
+/* For mobile view */
+@media (max-width: 992px) {
+  .navbar-nav {
+    text-align: center;
+  }
+
+  .navbar .nav-item {
+    margin: 10px 0;
+  }
+}
+
 
 /* Responsive Styles */
 @media (max-width: 992px) {

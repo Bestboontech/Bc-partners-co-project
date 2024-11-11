@@ -697,74 +697,43 @@
     </button>
   </div>
 </section>
+<!-- Contact -->
+<section id="contact" class="contact my-6 position-relative">
+  <img src="images/decoration-star.svg" alt="" class="decoration-star position-absolute" />
 
-
-    <!-- Contact -->
-    <section id="contact" class="contact my-6 position-relative">
-      <img
-        src="images/decoration-star.svg"
-        alt=""
-        class="decoration-star position-absolute"
-      />
-
-      <div class="container position-relative z-3">
-        <div class="row">
-          <div class="col-lg-6 d-none d-md-block">
-            <div class="image-container">
-              <img src="images/contact.png" alt="" class="img-fluid" />
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="text-container">
-              <h2>Request a Quote Today</h2>
-
-              <form action="https://script.google.com/macros/s/AKfycbzbwRZPkJ17rWzpZflDB2ZRLtO7eCrD3Fd5Wmq41kY-ww_lTUneH_Rq5s6p6cSj0Bp7/exec"
-              method="POST" name="contact-form" >
-                <div class="mb-3">
-                  <input
-                    type="text"
-                    name="Enter-name"
-                    class="form-control"
-                    placeholder="Enter name"
-                  />
-                </div>
-                <div class="mb-3">
-                  <input
-                    type="email"
-                    name="Enter-email"
-                    class="form-control"
-                    placeholder="Enter email"
-                  />
-                </div>
-                <div class="mb-3">
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="Enter-phone"
-                    placeholder="Enter phone"
-                  />
-                </div>
-                <div class="mb-3">
-                  <textarea
-                    class="form-control"
-                    name="message"
-                    placeholder="Enter message"
-                    rows="8"
-                  ></textarea>
-                </div>
-                <div class="d-grid gap-2">
-                  <input
-                    type="submit"
-                    value="Send"
-                    class="btn btn-primary btn-block"
-                  />
-                </div>
-              </form>
-            </div>
-          </div>
+  <div class="container position-relative z-3">
+    <div class="row">
+      <div class="col-lg-6 d-none d-md-block">
+        <div class="image-container">
+          <img src="images/contact.png" alt="" class="img-fluid" />
         </div>
       </div>
-    </section>
+      <div class="col-lg-6">
+        <div class="text-container">
+          <h2>Request a Quote Today</h2>
+
+          <form id="myForm" name="contact-form">
+            <div class="mb-3">
+                <input type="text" id="name" class="form-control" placeholder="Enter name" required />
+            </div>
+            <div class="mb-3">
+                <input type="email" id="email" class="form-control" placeholder="Enter email" required />
+            </div>
+            <div class="mb-3">
+                <input type="text" id="phone" class="form-control" placeholder="Enter phone" required />
+            </div>
+            <div class="mb-3">
+                <textarea class="form-control" id="message" placeholder="Enter message" rows="8" required></textarea>
+            </div>
+            <div class="d-grid gap-2">
+                <input type="submit" value="Send" class="btn btn-primary btn-block" />
+            </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <footer class="footer bg-light py-5">
       <div class="container">
