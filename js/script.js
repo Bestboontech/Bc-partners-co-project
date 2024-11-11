@@ -93,6 +93,7 @@ document
 
     try {
       btn.textContent = "Sending...";
+      btn?.setAttribute("disabled", true);
 
       const response = await fetch(
         "https://api.emailjs.com/api/v1.0/email/send",
@@ -117,5 +118,6 @@ document
       alert("Oops... an error occurred sending email.\nPlease try again later");
     } finally {
       btn.textContent = "Send";
+      btn?.removeAttribute("disabled");
     }
   });
