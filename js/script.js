@@ -75,7 +75,7 @@ document
   .addEventListener("submit", async function (event) {
     event.preventDefault();
 
-    const data = {
+    const formData = {
       name: event.target?.name?.value,
       email: event.target?.email?.value,
       phone: event.target?.phone?.value,
