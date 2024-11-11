@@ -70,35 +70,52 @@ document.addEventListener("DOMContentLoaded", () => {
 // Use debounced scroll handler for better performance
 window.addEventListener("scroll", debounce(handleScroll));
 
+// Emailjs Function
 document
   .getElementById("myForm")
   .addEventListener("submit", async function (event) {
     event.preventDefault();
-
+    const btn = document.getElementById("form-submit");
+    const form = event.target;
     const data = {
-      name: event.target?.name?.value,
-      email: event.target?.email?.value,
-      phone: event.target?.phone?.value,
-      message: event.target?.message?.value,
-      from_name: "Web",
+      service_id: "service_4l1wiqd", //Replace this with your own service_id
+      template_id: "template_ziif3le", //Replace this with your own template_id
+      user_id: "P_GH5A5zwjqPfCvDn", //Replace this with your own user_id
+
+      template_params: {
+        name: event.target?.name?.value,
+        email: event.target?.email?.value,
+        phone: event.target?.phone?.value,
+        message: event.target?.message?.value,
+        from_name: "Admin",
+      },
     };
 
     try {
-      const response = await fetch("/api/send-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+      btn.textContent = "Sending...";
+
+      const response = await fetch(
+        "https://api.emailjs.com/api/v1.0/email/send",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
 
       if (response.ok) {
-        alert("Your mail is sent!");
+        alert("Your quota request has been sent!");
+        form?.reset();
       } else {
-        const errorData = await response.json();
-        alert("Oops... " + JSON.stringify(errorData));
+        alert(
+          "Oops... an error occurred sending email.\nPlease try again later"
+        );
       }
     } catch (error) {
-      alert("Oops... " + error.message);
+      alert("Oops... an error occurred sending email.\nPlease try again later");
+    } finally {
+      btn.textContent = "Send";
     }
   });
