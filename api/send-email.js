@@ -28,6 +28,8 @@ export default async function handler(req, res) {
     if (response.ok) {
       res.status(200).json({ message: "Your mail is sent!" });
     } else {
+      console.log(response);
+
       const error = await response.json();
       res.status(500).json({ error });
     }
