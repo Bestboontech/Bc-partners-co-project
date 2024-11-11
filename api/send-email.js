@@ -4,7 +4,7 @@ export default async function handler(req, res) {
   }
 
   const { formData } = req.body;
-  console.log(formData);
+  console.log({ formData });
 
   // Send email using EmailJS API
   try {

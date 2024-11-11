@@ -15,31 +15,32 @@ const debounce = (func, wait = 10, immediate = true) => {
 
 // Handle scroll events
 const handleScroll = () => {
-  const toTopButton = document.querySelector('.to-top-btn');
-  const navbar = document.querySelector('.navbar');
-  const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+  const toTopButton = document.querySelector(".to-top-btn");
+  const navbar = document.querySelector(".navbar");
+  const scrollTop =
+    document.body.scrollTop || document.documentElement.scrollTop;
 
   if (toTopButton) {
     // Toggle visibility of "to-top" button
-    toTopButton.style.display = scrollTop > 200 ? 'flex' : 'none';
+    toTopButton.style.display = scrollTop > 200 ? "flex" : "none";
   }
 
   if (navbar) {
     // Toggle sticky navbar
-    navbar.classList.toggle('navbar-sticky', scrollTop > 50);
+    navbar.classList.toggle("navbar-sticky", scrollTop > 50);
   }
 };
 
 // Smooth scroll to top
 const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
 // Increment stats counters
 const incrementStats = () => {
-  document.querySelectorAll('.counter').forEach((counter) => {
-    counter.innerText = '0';
-    const target = +counter.getAttribute('data-target');
+  document.querySelectorAll(".counter").forEach((counter) => {
+    counter.innerText = "0";
+    const target = +counter.getAttribute("data-target");
     const increment = target / 200;
 
     const updateCounter = () => {
@@ -57,46 +58,45 @@ const incrementStats = () => {
 };
 
 // Event listeners
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   incrementStats();
 
-  const toTopButton = document.querySelector('.to-top-btn');
+  const toTopButton = document.querySelector(".to-top-btn");
   if (toTopButton) {
-    toTopButton.addEventListener('click', scrollToTop);
+    toTopButton.addEventListener("click", scrollToTop);
   }
 });
 
 // Use debounced scroll handler for better performance
-window.addEventListener('scroll', debounce(handleScroll));
+window.addEventListener("scroll", debounce(handleScroll));
 
+document
+  .getElementById("myForm")
+  .addEventListener("submit", async function (event) {
+    event.preventDefault();
+    const formData = new FormData();
 
-document.getElementById('myForm').addEventListener('submit', async function(event) {
-  event.preventDefault();
-  const formData = new FormData();
+    formData.append("name", event.target?.name?.value);
+    formData.append("email", event.target?.email?.value);
+    formData.append("phone", event.target?.phone?.value);
+    formData.append("message", event.target?.message?.value);
 
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+        body: JSON.stringify(formData),
+      });
 
- formData.append("name",event.target?.name?.value)
- formData.append("email",event.target?.email?.value)
- formData.append("phone",event.target?.phone?.value)
- formData.append("message",event.target?.message?.value)
-
-
-  try {
-    const response = await fetch('/api/send-email', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
-
-    if (response.ok) {
-      alert('Your mail is sent!');
-    } else {
-      const errorData = await response.json();
-      alert('Oops... ' + JSON.stringify(errorData));
+      if (response.ok) {
+        alert("Your mail is sent!");
+      } else {
+        const errorData = await response.json();
+        alert("Oops... " + JSON.stringify(errorData));
+      }
+    } catch (error) {
+      alert("Oops... " + error.message);
     }
-  } catch (error) {
-    alert('Oops... ' + error.message);
-  }
-});
+  });
