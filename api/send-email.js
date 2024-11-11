@@ -10,7 +10,7 @@ export default async function handler(req, res) {
       const response = await fetch('https://api.emailjs.com/api/v1.0/email/send-form', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'multipart/form-data',
         },
         body: JSON.stringify({
           service_id: process.env.EMAILJS_SERVICE_ID,
