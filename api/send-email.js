@@ -3,23 +3,24 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { formData } = req.body;
-  console.log({ formData });
+  console.log({ body: req.body });
 
   // Send email using EmailJS API
   try {
     const response = await fetch(
-      "https://api.emailjs.com/api/v1.0/email/send-form",
+      "https://api.emailjs.com/api/v1.0/email/send",
       {
         method: "POST",
         headers: {
-          "Content-Type": "multipart/form-data",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           service_id: process.env.EMAILJS_SERVICE_ID,
           template_id: process.env.EMAILJS_TEMPLATE_ID,
           user_id: process.env.EMAILJS_USER_ID,
-          ...formData,
+          template_params: {
+            ...req.body,
+          },
         }),
       }
     );

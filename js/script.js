@@ -75,11 +75,12 @@ document
   .addEventListener("submit", async function (event) {
     event.preventDefault();
 
-    const formData = {
+    const data = {
       name: event.target?.name?.value,
       email: event.target?.email?.value,
       phone: event.target?.phone?.value,
       message: event.target?.message?.value,
+      from_name: "Web",
     };
 
     try {
@@ -88,7 +89,7 @@ document
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ formData }),
+        body: JSON.stringify(data),
       });
 
       if (response.ok) {
