@@ -79,7 +79,7 @@ document
     const form = event.target;
     const data = {
       service_id: "service_r6ilmhf", //Replace this with your own service_id
-      template_id: "service_r6ilmhf", //Replace this with your own template_id
+      template_id: "template_0hfbmkm", //Replace this with your own template_id
       user_id: "2dH5DNO92HBkxP_KY", //Replace this with your own user_id
 
       template_params: {
