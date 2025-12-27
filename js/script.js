@@ -57,9 +57,75 @@ const incrementStats = () => {
   });
 };
 
+// Portfolio filtering functionality
+const initPortfolioFilter = () => {
+  const filterButtons = document.querySelectorAll('.portfolio-filter-btn');
+  const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Remove active class from all buttons
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      // Add active class to clicked button
+      button.classList.add('active');
+
+      const filterValue = button.getAttribute('data-filter');
+
+      portfolioItems.forEach(item => {
+        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+          item.style.display = 'block';
+          // Add fade-in animation
+          item.style.opacity = '0';
+          item.style.transform = 'translateY(20px)';
+          setTimeout(() => {
+            item.style.transition = 'all 0.3s ease';
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+          }, 50);
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+};
+
+// Portfolio card hover effects
+const initPortfolioHover = () => {
+  const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+  portfolioCards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      const image = card.querySelector('.portfolio-image img');
+      const overlay = card.querySelector('.portfolio-overlay');
+
+      if (image) {
+        image.style.transform = 'scale(1.05)';
+      }
+      if (overlay) {
+        overlay.style.opacity = '1';
+      }
+    });
+
+    card.addEventListener('mouseleave', () => {
+      const image = card.querySelector('.portfolio-image img');
+      const overlay = card.querySelector('.portfolio-overlay');
+
+      if (image) {
+        image.style.transform = 'scale(1)';
+      }
+      if (overlay) {
+        overlay.style.opacity = '0';
+      }
+    });
+  });
+};
+
 // Event listeners
 document.addEventListener("DOMContentLoaded", () => {
   incrementStats();
+  initPortfolioFilter();
+  initPortfolioHover();
 
   const toTopButton = document.querySelector(".to-top-btn");
   if (toTopButton) {
