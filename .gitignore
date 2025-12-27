@@ -1,1 +1,4 @@
-node_modules
+node_modulesnode_modules/
+venv/
+.env
+__pycache__/
